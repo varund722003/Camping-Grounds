@@ -34,6 +34,6 @@ PassportJS - authentication middleware for Node.js. Extremely flexible and modul
 
 Data Associations - associating user data with the respective campgrounds and comments using reference method
 
-Heroku - cloud platform as a service used as a web application deployment model
+Render - cloud platform as a service used as a web application deployment model
 
 AWS - mongodb is hosted on amazon ec2 instance
