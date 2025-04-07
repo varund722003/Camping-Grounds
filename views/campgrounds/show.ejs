@@ -112,5 +112,16 @@
     const maptilerApiKey = '<%- process.env.MAPTILER_API_KEY %>';
     const campground = <%- JSON.stringify(campground) %>
 </script>
+<script>
+  for (let i = 0; i < 20; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    leaf.style.left = Math.random() * 100 + 'vw';
+    leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
+    leaf.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(leaf);
+  }
+</script>
+
 
 <script src="/javascripts/showPageMap.js"></script>
