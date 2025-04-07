@@ -8,43 +8,31 @@
     height: 300px;
 }
 body {
-  margin: 0;
   overflow: hidden;
-  position: relative;
-  background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* soft sky background */
+  background: linear-gradient(to top, #a8edea, #fed6e3);
 }
 
-/* Container for leaf particles using pseudo-elements */
-body::before,
-body::after {
-  content: '';
+.leaf {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAnElEQVQ4T63UPQrCQBiF4c+kBDaw2sggOIgugtxBNsJLJJZR2A6CUFgSy9AkM3uPlSkUHOHzP++NmXBtI4lQoxkY7gG9gBfwFYCEOgFwFXbtxAf8AB8p7H5YBcYBt4DOpwSz2QpTV1pug4e9jPohFZEd2M7tIpJlhHkG6McdBdq0RJW03xQ5/4yt3AvZPrJK2A75LoKZ9QLclYAAAAASUVORK5CYII=');
-
-  background-size: 30px 30px;
-  background-repeat: repeat;
-  animation: leafDrift 20s linear infinite;
-  opacity: 0.3;
-  z-index: -1;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #6a994e, #386641);
+  border-radius: 50%;
+  animation: floatLeaf 10s linear infinite;
+  opacity: 0.8;
 }
 
-body::after {
-  animation-delay: 10s;
-  opacity: 0.2;
-}
-
-/* Keyframes for drifting animation */
-@keyframes leafDrift {
+@keyframes floatLeaf {
   0% {
-    transform: translateY(-100%) translateX(0) rotate(0deg);
+    transform: translateY(100vh) rotate(0deg) scale(1);
+    opacity: 0;
   }
   50% {
-    transform: translateY(50%) translateX(30px) rotate(180deg);
+    opacity: 1;
   }
   100% {
-    transform: translateY(200%) translateX(-30px) rotate(360deg);
+    transform: translateY(-10vh) rotate(720deg) scale(1.2);
+    opacity: 0;
   }
 }
+
