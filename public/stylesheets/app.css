@@ -7,15 +7,44 @@
     width: 100%;
     height: 300px;
 }
-@keyframes gradient-animation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* soft sky background */
 }
 
-body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient-animation 15s ease infinite;
-  color: white;
+/* Container for leaf particles using pseudo-elements */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAnElEQVQ4T63UPQrCQBiF4c+kBDaw2sggOIgugtxBNsJLJJZR2A6CUFgSy9AkM3uPlSkUHOHzP++NmXBtI4lQoxkY7gG9gBfwFYCEOgFwFXbtxAf8AB8p7H5YBcYBt4DOpwSz2QpTV1pug4e9jPohFZEd2M7tIpJlhHkG6McdBdq0RJW03xQ5/4yt3AvZPrJK2A75LoKZ9QLclYAAAAASUVORK5CYII=');
+
+  background-size: 30px 30px;
+  background-repeat: repeat;
+  animation: leafDrift 20s linear infinite;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+body::after {
+  animation-delay: 10s;
+  opacity: 0.2;
+}
+
+/* Keyframes for drifting animation */
+@keyframes leafDrift {
+  0% {
+    transform: translateY(-100%) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(50%) translateX(30px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(200%) translateX(-30px) rotate(360deg);
+  }
 }
